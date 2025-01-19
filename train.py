@@ -3,7 +3,6 @@ from efficientnet_pytorch import EfficientNet
 from training_strategy import EarlyStopping
 from time import time
 from torch.utils.data import DataLoader
-import subprocess
 
 from dataset import my_dataset
 
@@ -36,11 +35,6 @@ def train_one_epoch(model, loss_fn, optimizer, epoch, train_dataset, train_loade
         training_correct_num += (pred == labels).sum()
         # break
 
-    singlelog = open(r'/veracruz/home/j/jwang/scripts/temp_test.txt', 'a+')
-    msg = f'Training time for epoch:{epoch + 1}: {(time() - start_time):.2f}s, training loss:{training_loss:.6f}'
-    process = subprocess.Popen(msg, shell=True, stdin=subprocess.PIPE, stdout=singlelog,
-                               stderr=subprocess.PIPE)
-    singlelog.close()
 
     print(f'Training time for epoch:{epoch + 1}: {(time() - start_time):.2f}s, training loss:{training_loss:.6f}')
     return model
