@@ -58,8 +58,9 @@ def val_model(model, loss_fn, val_dataset, val_loader):
 
             # break
 
-    val_accuracy = val_correct_num / len(val_dataset) * 100
-    print('Val Loss:{:.6f}, Val accuracy:{:.6f}% ({} / {})'.format(val_loss, val_accuracy, val_correct_num, len(val_dataset)))
+    val_accuracy = val_correct_num / len(val_dataset)
+    val_acc_100 = val_accuracy * 100
+    print('Val Loss:{:.6f}, Val accuracy:{:.6f}% ({} / {})'.format(val_loss, val_acc_100, val_correct_num, len(val_dataset)))
 
     return val_loss, val_accuracy
 
