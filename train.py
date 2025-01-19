@@ -131,7 +131,7 @@ if __name__ == '__main__':
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
     model_save_dir = r'/veracruz/home/j/jwang/data/model_weights'
-    train(dataset_name='D2', model_save_dir=model_save_dir,
+    train(dataset_name='D1', model_save_dir=model_save_dir,
           train_dataset=train_dataset, train_loader=train_loader,
           val_dataset=val_dataset, val_loader=val_loader,
           reload=False, reload_weights=None
