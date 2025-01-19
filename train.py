@@ -79,6 +79,7 @@ def train(dataset_name, model_save_dir, train_dataset, train_loader, val_dataset
         early_stopping.counter = checkpoints['counter']
         early_stopping.best_val_acc = checkpoints['best_val_acc']
 
+    model = model.to(DEVICE)
 
     loss_fn = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
@@ -87,6 +88,7 @@ def train(dataset_name, model_save_dir, train_dataset, train_loader, val_dataset
     print('Total training Samples:', len(train_dataset))
     print('Total Batch:', len(train_loader))
     print('Total EPOCH:', EPOCHS)
+    print('Runing device:', DEVICE)
 
     print('-' * 20 + 'Validation Info' + '-' * 20)
     print('Total Val Samples:', len(val_dataset))
