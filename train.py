@@ -109,13 +109,18 @@ def train(dataset_name, model_save_dir, train_dataset, train_loader, val_dataset
 if __name__ == '__main__':
     print('Start debugging ...')
 
-    train_dataset = my_dataset(ds_dir=r'D:\my_phd\dataset\Stage3\D2_CityPersons',txt_name='test.txt')
-    train_loader = DataLoader(train_dataset, batch_size=8, shuffle=False)
+    # ds_dir = r'D:\my_phd\dataset\Stage3\D2_CityPersons'
+    batch_size = 64
+    ds_dir = r'/veracruz/home/j/jwang/data/Stage4_D2_CityPersons_7Augs'
 
-    val_dataset = my_dataset(ds_dir=r'D:\my_phd\dataset\Stage3\D2_CityPersons',txt_name='val.txt')
-    val_loader = DataLoader(val_dataset, batch_size=8, shuffle=False)
+    train_dataset = my_dataset(ds_dir=ds_dir,txt_name='augmentation_train.txt')
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
-    train(dataset_name='D2', model_save_dir=r'C:\Users\wangj\Desktop\Chunchun\test_files',
+    val_dataset = my_dataset(ds_dir=ds_dir,txt_name='val.txt')
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+
+    model_save_dir = r'/veracruz/home/j/jwang/data/model_weights'
+    train(dataset_name='D2', model_save_dir=model_save_dir,
           train_dataset=train_dataset, train_loader=train_loader,
           val_dataset=val_dataset, val_loader=val_loader,
           reload=False, reload_weights=None
