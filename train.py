@@ -3,6 +3,7 @@ from efficientnet_pytorch import EfficientNet
 from training_strategy import EarlyStopping
 from time import time
 from torch.utils.data import DataLoader
+import subprocess
 
 from dataset import my_dataset
 
@@ -34,6 +35,12 @@ def train_one_epoch(model, loss_fn, optimizer, epoch, train_dataset, train_loade
         _, pred = torch.max(out, 1)
         training_correct_num += (pred == labels).sum()
         # break
+
+    singlelog = open(r'/veracruz/home/j/jwang/scripts/temp_test.txt', 'a+')
+    msg = f'Training time for epoch:{epoch + 1}: {(time() - start_time):.2f}s, training loss:{training_loss:.6f}'
+    process = subprocess.Popen(msg, shell=True, stdin=subprocess.PIPE, stdout=singlelog,
+                               stderr=subprocess.PIPE)
+    singlelog.close()
 
     print(f'Training time for epoch:{epoch + 1}: {(time() - start_time):.2f}s, training loss:{training_loss:.6f}')
     return model
@@ -114,8 +121,8 @@ if __name__ == '__main__':
     print('Start running ...')
 
     # ds_dir = r'D:\my_phd\dataset\Stage3\D2_CityPersons'
-    batch_size = 64
-    ds_dir = r'/veracruz/home/j/jwang/data/Stage4_D2_CityPersons_7Augs'
+    batch_size = 128
+    ds_dir = r'/veracruz/home/j/jwang/data/Stage4_D1_ECPDaytime_7Augs'
 
     train_dataset = my_dataset(ds_dir=ds_dir,txt_name='augmentation_train.txt')
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
