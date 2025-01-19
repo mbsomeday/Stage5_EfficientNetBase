@@ -110,7 +110,7 @@ def train(dataset_name, model_save_dir, train_dataset, train_loader, val_dataset
         # print('*' * 50)
 
 if __name__ == '__main__':
-    print('Start debugging ...')
+    print('Start running ...')
 
     # ds_dir = r'D:\my_phd\dataset\Stage3\D2_CityPersons'
     batch_size = 64
