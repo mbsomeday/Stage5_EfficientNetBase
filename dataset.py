@@ -56,11 +56,14 @@ if __name__ == '__main__':
     #     print(labels)
     #     break
     import numpy as np
+    import pytorch_lightning
     print('torch:', torch.__version__)
     print('torchvision:', torchvision.__version__)
     print('np:', np.__version__)
 
     print('cuda:', torch.cuda.is_available())
+    print('pytorch_lightning:', pytorch_lightning.__version__)
+
 
 
 
