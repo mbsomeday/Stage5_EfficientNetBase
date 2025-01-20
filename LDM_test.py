@@ -1,4 +1,4 @@
-import argparse, torch
+import argparse, torch, torchvision
 from pytorch_lightning.trainer import Trainer
 
 DEVICE = torch.cuda.is_available()
