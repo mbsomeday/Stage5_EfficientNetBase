@@ -46,7 +46,15 @@ class my_dataset(Dataset):
         return image, label
 
 
+if __name__ == '__main__':
+    ds_dir = r'/veracruz/home/j/jwang/data/Stage4_D2_CityPersons_7Augs'
+    txt_name = 'test.txt'
+    my_dataset = my_dataset(ds_dir, txt_name)
+    my_loader = DataLoader(my_dataset, batch_size=4)
 
+    for images, labels in my_loader:
+        print(labels)
+        break
 
 
 
