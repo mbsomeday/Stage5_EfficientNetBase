@@ -1,6 +1,8 @@
-import argparse
+import argparse, torch
 from pytorch_lightning.trainer import Trainer
 
+DEVICE = torch.cuda.is_available()
+print(DEVICE)
 
 def get_parser(**parser_kwargs):
     def str2bool(v):
@@ -105,7 +107,7 @@ def get_parser(**parser_kwargs):
 
 
 parser = get_parser()
-parser = Trainer.add_argparse_args(parser)
+# parser = Trainer.add_argparse_args(parser)
 
 
 
