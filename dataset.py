@@ -55,9 +55,12 @@ if __name__ == '__main__':
     # for images, labels in my_loader:
     #     print(labels)
     #     break
-
+    import numpy as np
     print('torch:', torch.__version__)
     print('torchvision:', torchvision.__version__)
+    print('np:', np.__version__)
+
+    print('cuda:', torch.cuda.is_available())
 
 
 
