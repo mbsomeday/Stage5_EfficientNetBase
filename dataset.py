@@ -1,4 +1,4 @@
-import torch, os
+import torch, os, torchvision
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
 from PIL import Image
@@ -47,15 +47,17 @@ class my_dataset(Dataset):
 
 
 if __name__ == '__main__':
-    ds_dir = r'/veracruz/home/j/jwang/data/Stage4_D2_CityPersons_7Augs'
-    txt_name = 'test.txt'
-    my_dataset = my_dataset(ds_dir, txt_name)
-    my_loader = DataLoader(my_dataset, batch_size=4)
+    # ds_dir = r'/veracruz/home/j/jwang/data/Stage4_D2_CityPersons_7Augs'
+    # txt_name = 'test.txt'
+    # my_dataset = my_dataset(ds_dir, txt_name)
+    # my_loader = DataLoader(my_dataset, batch_size=4)
+    #
+    # for images, labels in my_loader:
+    #     print(labels)
+    #     break
 
-    for images, labels in my_loader:
-        print(labels)
-        break
-
+    print('torch:', torch.__version__)
+    print('torchvision:', torchvision.__version__)
 
 
 
