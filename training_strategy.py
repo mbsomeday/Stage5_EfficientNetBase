@@ -8,7 +8,7 @@ class EarlyStopping():
         当loss稳定不变patience个epoch时，结束训练
     '''
 
-    def __init__(self, model_name, dataset_name, model_save_dir, patience=30, verbose=False, delta=0.0001):
+    def __init__(self, model_name, dataset_name, model_save_dir, patience=10, verbose=False, delta=0.0001):
         """
         Args:
             save_path : 模型保存文件夹
